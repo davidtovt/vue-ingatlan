@@ -1,6 +1,10 @@
+body {
+  background-color: #FAFBFF;
+}
+
 img {
 	max-width: 100%;
-    height: auto;
+  height: auto;
 }
 
 figure img {
@@ -10,4 +14,19 @@ figure img {
 b,
 strong {
 	font-weight: $font-weight-bolder;
+}
+
+time {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding-top: .5rem;
+  font-size: $font-size-sm;
+
+	svg {
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		margin-right: .5rem;
+	}
 }

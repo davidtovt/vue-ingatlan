@@ -1,18 +1,25 @@
 <template>
-  <a class="card" :href="data.adId">
-    <div class="row">
-      <figure class="col-md-3">
-        <img :src="data.image" :alt="data.address" />
+  <router-link class="card mb-3" :to="'/' + data.adId">
+    <div class="row g-0">
+      <figure class="col-md-3 m-0">
+        <img class="img-fluid" :src="data.image" :alt="data.address" />
       </figure>
       <div class="col-md-9">
-        <h3>{{ data.address }}</h3>
+        <div class="card-body">
+          <h3 class="card-title">{{ data.address }}</h3>
 
-        <favorite-btn :adId="data.adId" />
+          <p class="price">{{ data.price.toLocaleString() }} Ft</p>
 
-        <time v-if="showDate" :datetime="$store.getters.formatDate(data.favorite_date)">{{ $store.getters.formatDate(data.favorite_date, 'hu') }}</time>
+          <favorite-btn :adId="data.adId" />
+
+          <time v-if="data.favorite_date" :datetime="$store.getters.formatDate(data.favorite_date)">
+            <svg><use xlink:href="../assets/img/icons.svg#calendar"></use></svg>
+            {{ $store.getters.formatDate(data.favorite_date, 'hu') }}
+          </time>
+        </div>
       </div>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script>
@@ -22,12 +29,68 @@ export default {
   components: {
     FavoriteBtn
   },
-  props: ['data', 'showDate'],
+  props: ['data'],
 }
 </script>
 
-<style scoped>
-img {
-  max-width: 100%;
+<style lang="scss" scoped>
+@import '../assets/scss/settings';
+
+.card {
+  overflow: hidden;
+  text-decoration: none;
+  color: $body-color;
+
+  figure {
+    height: 8.75rem;
+  }
+
+  &-body {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 6.875rem;
+    padding: .75rem 4.5rem .75rem 1.25rem;
+  }
+
+  .img-fluid {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-title {
+    margin-bottom: .25rem;
+    font-size: 1.5rem;
+  }
+
+  .price {
+    margin-bottom: 0;
+  }
+
+  .btn--favorite {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    figure,
+    &-body {
+      height: 11.25rem;
+    }
+    
+    &-title {
+      font-size: 1.875rem;
+    }
+    
+    .price {
+      font-size: 1.5rem;
+    }
+
+    .btn--favorite {
+      top: 1.75rem;
+    }
+  }
 }
 </style>

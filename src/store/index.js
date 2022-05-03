@@ -9,7 +9,7 @@ export default createStore({
     favorites: [],
   },
   mutations: {
-    SET_FAVORITES(state) {
+    LOAD_FAVORITES(state) {
       if(localStorage.favorites) {
         state.favorites = JSON.parse(localStorage.favorites);
       }
@@ -31,8 +31,8 @@ export default createStore({
     }
   },
   actions: {
-    setFavorites(state) {
-      state.commit('SET_FAVORITES');
+    loadFavorites(state) {
+      state.commit('LOAD_FAVORITES');
     },
     updateFavorites(state, payload) {
       state.commit('UPDATE_FAVORITES', payload);

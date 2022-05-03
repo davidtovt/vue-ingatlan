@@ -1,0 +1,44 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.75rem;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    fill: $white;
+    transition: fill .15s ease-in-out;
+  }
+
+  &--responsive {
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      width: auto;
+      min-width: 20rem;
+    }
+  }
+
+  &--light-primary {
+    color: $primary;
+    background-color: #EBECFA;
+
+    svg {
+      fill: $primary;
+    }
+
+    &:hover {
+      color: $white;
+      background-color: $primary;
+
+      svg {
+        fill: $white;
+      }
+    }
+  }
+
+  &--icon {
+    font-size: $font-size-base;
+  }
+}

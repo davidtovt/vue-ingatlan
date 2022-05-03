@@ -2,13 +2,72 @@
     Custom Variables
 **************************************************/
 
-$animation-time:                                  .4s;
-$animation-type:                                  ease-in-out;
-$animation-default:                               all $animation-time $animation-type;
-
-$mb-default:                                      1.5rem;
+$animation-time:               .4s;
+$animation-type:               ease-in-out;
+$animation-default:            all $animation-time $animation-type;
 
 /*************************************************
     Bootstrap Variables
 **************************************************/
 
+// Colors
+
+$primary:                      #323EC8;
+
+// Options
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1160px
+);
+
+$grid-gutter-width:            2.5rem;
+
+$font-family-sans-serif:       "Red Hat Display", Arial, sans-serif;
+
+$enable-shadows:               true;
+
+$spacer:                       1.25rem;
+
+$border-radius-sm:             .25rem;
+$border-radius:                .5rem;
+$border-radius-lg:             1rem;
+
+$box-shadow-sm:                0 0 .625rem rgba(50, 62, 200, .12);
+$box-shadow:                   0 0 1.25rem rgba(50, 62, 200, .1);
+
+// Typography
+
+$font-weight-normal:           500;
+$font-weight-bold:             700;
+
+$headings-font-weight:         $font-weight-bold;
+
+// Buttons
+
+$btn-padding-y:                .875rem;
+$btn-padding-x:                1.5rem;
+$btn-font-size:                1.25rem;
+$btn-font-weight:              $font-weight-bold;
+$btn-box-shadow:               none;
+
+// Cards
+
+$card-border-width:            0;
+$card-border-radius:           $border-radius-lg;
+$card-box-shadow:              $box-shadow-sm;
+
+// Navs
+
+$nav-pills-link-active-color:  $primary;
+$nav-pills-link-active-bg:     #EBECFA;
